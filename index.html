@@ -3,9 +3,26 @@
     <head>
         <meta charset="utf-8">
         <title>Webgate</title>
+        <script 
+              src="https://unpkg.com/htmx.org@1.9.10" 
+              integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" 
+              crossorigin="anonymous"></script>
     </head>
     <body>
         <h1>Webgate</h1>
-        <p>Welcome to Webgate!</p>
+        <p>Welcome to <a href="/test_tag_a" >Webgate!</a></p>
+        <div id="output-data"></div>
+        <input 
+            name="data-input"
+            type="text" 
+            placeholder="Your feedback here...">
+        </input>
+        <button
+            hx-post="/add"
+            hx-include="[name=data-input]"
+            hx-swap="beforeend" 
+            hx-target="#output-data">
+            Click
+        </button>
     </body>
 </html>
